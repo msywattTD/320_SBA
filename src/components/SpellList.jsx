@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import SpellListItem from './SpellListItem';
 
 function SpellList() {
     const [spells, setSpells] = useState(null);
@@ -42,7 +43,11 @@ function SpellList() {
         //         <h1>{currentSpellList[item].name}</h1>;
         //     }
         // }
-        return <h1>{spells.results[0].name}</h1>;
+        const populatedList = spells.results.map((spell) => {
+            // console.log(spell);
+            return <SpellListItem name={spell.name} index={spell.index} />;
+        });
+        return <ul>{populatedList}</ul>;
     };
     return spells ? loaded() : loading();
 }
