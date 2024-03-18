@@ -1,13 +1,12 @@
-import SpellList from "../components/SpellList"
+import SpellList from '../components/SpellList';
 
 function Bard() {
     return (
         <div>
-            Hello.
+            <Form />
             <SpellList />
         </div>
-
-    )
+    );
 }
 
-export default Bard
+export default Bard;

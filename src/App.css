@@ -1,6 +1,5 @@
 #root {
   margin: 0 auto;
-  text-align: center;
 }
 
 .nav {
@@ -15,4 +14,12 @@
 .nav a {
   color: white;
   text-decoration: none;
+}
+
+.spell-info {
+  padding: 4px;
+}
+
+ul {
+  list-style: none;
 }
