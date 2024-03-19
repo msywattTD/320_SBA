@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
-export default function Form() {
-    const [sortValue, setSortValue] = useState();
+export default function Form({ sortValue, setSortValue }) {
     function handleSubmit(e) {
         e.preventDefault();
         setSortValue(e.target[0].value);
-        localStorage.setItem('sortValue', sortValue);
         console.log('The sort value is :', sortValue);
     }
 

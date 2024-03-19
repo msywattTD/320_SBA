@@ -3,12 +3,11 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import SpellListItem from './SpellListItem';
 
-function SpellList() {
+function SpellList({ sortValue, setSortValue }) {
     const [spells, setSpells] = useState(null);
     let { charClass } = useParams();
     const url = `https://www.dnd5eapi.co/api/classes/${charClass}/spells`;
-    const sortLevel = localStorage.getItem('sortValue');
-    console.log('stored sort value is: ', sortLevel);
+    const sortedUrl = `https://www.dnd5eapi.co/api/classes/${charClass}/levels/${sortValue}/spells`;
 
     async function getSpellList(charClass) {
         try {
@@ -19,9 +18,22 @@ function SpellList() {
         }
     }
 
+    async function getSortedSpellList(charClass, sortValue) {
+        try {
+            let res = await axios.get(sortedUrl);
+            setSpells(res.data);
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
     useEffect(() => {
         getSpellList(charClass);
     }, []);
+
+    useEffect(() => {
+        getSortedSpellList(charClass, sortValue);
+    }, [sortedUrl]);
 
     const loading = () => {
         return <h1>Loading...</h1>;
