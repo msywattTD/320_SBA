@@ -5,9 +5,10 @@ import SpellListItem from './SpellListItem';
 
 function SpellList() {
     const [spells, setSpells] = useState(null);
-
     let { charClass } = useParams();
     const url = `https://www.dnd5eapi.co/api/classes/${charClass}/spells`;
+    const sortLevel = localStorage.getItem('sortValue');
+    console.log('stored sort value is: ', sortLevel);
 
     async function getSpellList(charClass) {
         try {
