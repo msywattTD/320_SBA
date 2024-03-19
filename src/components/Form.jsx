@@ -1,10 +1,12 @@
-import { useState } from 'react';
-
 export default function Form({ sortValue, setSortValue }) {
     function handleSubmit(e) {
         e.preventDefault();
         setSortValue(e.target[0].value);
         console.log('The sort value is :', sortValue);
+    }
+    function handleReset() {
+        setSortValue(null);
+        console.log('The sort value has been reset.');
     }
 
     return (
@@ -23,6 +25,9 @@ export default function Form({ sortValue, setSortValue }) {
                 <option value="9">9</option>
             </select>
             <button type="submit">Sort</button>
+            <button type="reset" onClick={handleReset}>
+                Reset
+            </button>
         </form>
     );
 }

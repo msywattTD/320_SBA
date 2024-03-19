@@ -17,7 +17,6 @@ function SpellList({ sortValue, setSortValue }) {
             console.error(e);
         }
     }
-
     async function getSortedSpellList(charClass, sortValue) {
         try {
             let res = await axios.get(sortedUrl);
@@ -28,11 +27,15 @@ function SpellList({ sortValue, setSortValue }) {
     }
 
     useEffect(() => {
-        getSpellList(charClass);
-    }, []);
+        if (sortValue == null) {
+            getSpellList(charClass);
+        }
+    }, [sortedUrl]);
 
     useEffect(() => {
-        getSortedSpellList(charClass, sortValue);
+        if (sortValue != null) {
+            getSortedSpellList(charClass, sortValue);
+        }
     }, [sortedUrl]);
 
     const loading = () => {
