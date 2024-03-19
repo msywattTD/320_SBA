@@ -6,8 +6,16 @@ function Bard() {
     const [sortValue, setSortValue] = useState();
     return (
         <div>
-            <Form sortValue={sortValue} setSortValue={setSortValue} />
-            <SpellList sortValue={sortValue} setSortValue={setSortValue} />
+            <Form
+                sortValue={sortValue}
+                setSortValue={setSortValue}
+                className="Form"
+            />
+            <SpellList
+                sortValue={sortValue}
+                setSortValue={setSortValue}
+                className="SpellList"
+            />
         </div>
     );
 }

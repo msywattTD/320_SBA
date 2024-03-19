@@ -11,7 +11,7 @@ export default function Form({ sortValue, setSortValue }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="sort">Sort By:</label>
+            <label htmlFor="sort">Filter By:</label>
             <select name="sort" id="sort">
                 <option value="0">0</option>
                 <option value="1">1</option>
@@ -24,7 +24,7 @@ export default function Form({ sortValue, setSortValue }) {
                 <option value="8">8</option>
                 <option value="9">9</option>
             </select>
-            <button type="submit">Sort</button>
+            <button type="submit">Filter</button>
             <button type="reset" onClick={handleReset}>
                 Reset
             </button>
